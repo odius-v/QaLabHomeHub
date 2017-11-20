@@ -5,16 +5,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class scriptA {
     public static void main(String[] args) {
+
         WebDriver driver = initChromeDriver.initChrome();
 
-        WebDriver login = loginAdmin.loginMethod();
+        new loginAdmin(driver).loginMethod();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        WebDriver logout = logoutAdmin.logoutMethod();
-
+        new logoutAdmin(driver).logoutMethod();
+        driver.quit();
     }
 
 
